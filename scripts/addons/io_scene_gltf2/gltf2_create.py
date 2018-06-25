@@ -437,6 +437,9 @@ def create_custom_property(blender_element):
 
         add_value = False
 
+        if isinstance(value, types.ID):
+            add_value = True
+
         if isinstance(value, str):
             add_value = True
 
