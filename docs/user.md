@@ -86,7 +86,20 @@ In Blender, objects can be assigned to different layers. By default, all objects
 
 #### Export extras
 
-In Blender, for some objects, it is possible to set custom properties. If enabled, these custom properties are exported into the `extras` property of the glTF 2.0 file.
+In Blender, for some objects, it is possible to set custom properties.
+If enabled, these custom properties are exported into the `extras` property of the glTF 2.0 file.
+Custom properties in Blender can be set manually, or are defined in blender addons. 
+ 
+1. properties can be set manually in the Object context of a properties space under the "custom properties" panel:<br>
+![edit custom properties manually](custom_poperties_manual.png)
+
+2. Blender addons may define custom properties which can be set in the addon-specific ui, 
+but they also appear in the "custom properties" panel.
+Blenders own cycles renderer makes use of this interface:<br>
+![properties defined by api](custom_poperties_cycles.png)<br>
+These *api-defined* properties from cycles are ignored, but in general, they can be used to export
+structured custom data of arbitrary complexity. [-> More information](export_extras_developer.md).
+  
 
 ### Meshes
 
