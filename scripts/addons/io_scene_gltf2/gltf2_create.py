@@ -41,10 +41,20 @@ from bpy import types
 class BlenderEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, types.ID):
-            return dict(
+            result =  dict(
                 name=obj.name,
                 type=obj.__class__.__name__
             )
+            if hasattr(obj, "_gltf_export_data"):
+                try:
+                    custom_data = obj._gltf_export_data()
+                except Exception as e:
+                    msg = "Error in {}".format(obj._gltf_export_data)
+                    custom_data = msg
+                    print(msg)
+                    print(e)
+                result["data"] = custom_data
+            return result
 
         return super(BlenderEncoder, self).default(obj)
 
