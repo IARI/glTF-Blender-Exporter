@@ -98,7 +98,7 @@ but they also appear in the "custom properties" panel.
 Blenders own cycles renderer makes use of this interface:<br>
 ![properties defined by api](custom_poperties_cycles.png)<br>
 These *api-defined* properties from cycles are ignored, but in general, they can be used to export
-structured custom data of arbitrary complexity. [-> More information](export_extras_developer.md).
+structured custom data of arbitrary complexity. [-> Export extras for developers](export_extras_developer.md).
   
 
 ### Meshes

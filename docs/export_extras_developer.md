@@ -3,16 +3,31 @@ Export extras for developers
 
 ### Preface
 
-Blender addons may define custom properties which can be set in the addon-specific ui,
-which can be exported using the *Export extras* option.
+Blender addons may define custom properties which can be set in the addon-specific ui.
+This guide is meant to give Blender-addons developers an overview on how  
+these properties can be exported with the *glTF-Blender-Exporter* using the *Export extras* option.  
 
 ### Property Types
 
-Lorem Ipsum ...
+#### Which properties are exported?
 
-#### PointerProperty
+```python
+def register():
+    bpy.types.Object.myObjectProperty = bpy.props.PointerProperty(type=EAWObjectPropertyGroup)
+    bpy.types.World.myGlobalProperty = bpy.props.PointerProperty(type=WorldPropertyGroup)
+```
 
-Lorem Ipsum ...
+#### Simple Properties
+
+* BoolProperty, FloatProperty, IntProperty
+* StringProperty
+* EnumProperty
+* BoolVectorProperty, FloatVectorProperty, IntVectorProperty
+
+#### Structured Properties
+
+* CollectionProperty
+* PointerProperty
 
 #### Export Hook
 
